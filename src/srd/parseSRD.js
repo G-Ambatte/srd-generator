@@ -20,6 +20,7 @@ const main = function(){
     const output = input.flatMap((monster)=>{
         ["Actions", "Traits", "Legendary Actions"].map((item)=>{
             monster[item] = monster[item] && parseString(monster[item]).split('</p>');
+            return true;
         });
         return monster;
     });
@@ -45,12 +46,13 @@ const parseString = function(inputString) {
 
     terms.map((term)=>{
         outputString = outputString.replaceAll(term.searchTerm, term.replaceTerm);
+        return true;
     });
 
-    if(outputString.slice(0,1)== ','){
+    if(outputString.slice(0,1) === ','){
         outputString = outputString.substring(1);
     };
-    if(outputString.slice(-4) == '</p>'){
+    if(outputString.slice(-4) === '</p>'){
         outputString = outputString.slice(0, -4);
     };
 
