@@ -8,12 +8,12 @@ The intent of this project is to create a quick and simple website that generate
 ## Steps
 
 - [x] Obtain SRD monster data
-- [] User selection interface
-- [] Output object formatting
-  - [] v3 renderer
-  - [] Legacy renderer
-- [] Output to clipboard
-- [] Integration with Homebrewery data endpoint
+- [ ] User selection interface
+- [ ] Output object formatting
+  - [ ] v3 renderer
+  - [ ] Legacy renderer
+- [ ] Output to clipboard
+- [ ] Integration with Homebrewery data endpoint
 
 ### Obtain SRD monster data
 *2022/04/17 - Complete*
