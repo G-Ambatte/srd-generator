@@ -1,7 +1,7 @@
 /*
 ============================================================================
 
-This file parses the `tkfu/srd_5e_monsters.json` file found at 
+This file parses the `tkfu/srd_5e_monsters.json` file found at
 https://gist.github.com/tkfu/9819e4ac6d529e225e9fc58b358c3479.js
 
 This is only intended as an initial starting point for the data source,
@@ -15,49 +15,49 @@ const fs = require('fs');
 
 const main = function(){
 
-    const input = require('./srd_monsters.json');
+	const input = require('./srd_monsters.json');
 
-    const output = input.flatMap((monster)=>{
-        ["Actions", "Traits", "Legendary Actions"].map((item)=>{
-            monster[item] = monster[item] && parseString(monster[item]).split('</p>');
-            return true;
-        });
-        return monster;
-    });
+	const output = input.flatMap((monster)=>{
+		['Actions', 'Traits', 'Legendary Actions'].map((item)=>{
+			monster[item] = monster[item] && parseString(monster[item]).split('</p>');
+			return true;
+		});
+		return monster;
+	});
 
-    // console.log(JSON.stringify(output));
+	// console.log(JSON.stringify(output));
 
-    fs.writeFileSync('./srd.json', JSON.stringify(output, null, 4));
+	fs.writeFileSync('./srd.json', JSON.stringify(output, null, 4));
 
-}
+};
 
 const parseString = function(inputString) {
-    if(!inputString) return;
+	if(!inputString) return;
 
-    let outputString = inputString;
-    
-    const terms = [
-        { searchTerm: '<p>', replaceTerm : '' },
-        { searchTerm: '<em>', replaceTerm : '*' },
-        { searchTerm: '</em>', replaceTerm : '*' },
-        { searchTerm: '<strong>', replaceTerm : '**' },
-        { searchTerm: '</strong>', replaceTerm : '**' },
-    ]
+	let outputString = inputString;
 
-    terms.map((term)=>{
-        outputString = outputString.replaceAll(term.searchTerm, term.replaceTerm);
-        return true;
-    });
+	const terms = [
+		{ searchTerm: '<p>', replaceTerm: '' },
+		{ searchTerm: '<em>', replaceTerm: '*' },
+		{ searchTerm: '</em>', replaceTerm: '*' },
+		{ searchTerm: '<strong>', replaceTerm: '**' },
+		{ searchTerm: '</strong>', replaceTerm: '**' },
+	];
 
-    if(outputString.slice(0,1) === ','){
-        outputString = outputString.substring(1);
-    };
-    if(outputString.slice(-4) === '</p>'){
-        outputString = outputString.slice(0, -4);
-    };
+	terms.map((term)=>{
+		outputString = outputString.replaceAll(term.searchTerm, term.replaceTerm);
+		return true;
+	});
 
-    // console.log(`${inputString}\n\n >>>\n\n ${outputString}`);
-    return outputString;
+	if(outputString.slice(0, 1) === ','){
+		outputString = outputString.substring(1);
+	};
+	if(outputString.slice(-4) === '</p>'){
+		outputString = outputString.slice(0, -4);
+	};
+
+	// console.log(`${inputString}\n\n >>>\n\n ${outputString}`);
+	return outputString;
 };
 
 main();
