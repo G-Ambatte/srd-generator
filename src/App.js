@@ -53,7 +53,7 @@ const App = createReactClass({
 			</div>
 			<div className='srd-body'>
 				<div className='srd-filter-box'>
-					<FilterElement text={this.state.text} placeholder='start typing here...' updateText={this.updateText} />
+					<FilterElement label='NAME:' text={this.state.text} placeholder='start typing here...' updateText={this.updateText} />
 					{this.state.text ? `Do you mean ${this.state.suggestion}?` : 'Suggestions will appear here while typing'}
 				</div>
 				<div className='srd-data'>

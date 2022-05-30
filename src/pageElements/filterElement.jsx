@@ -22,12 +22,14 @@ const FilterElement = createReactClass({
 
 	render() {
 		return <div className='srd-filter'>
-			<input
-				type='text'
-				value={this.state.text}
-				placeholder={this.props.placeholder}
-				onChange={(e)=>this.updateText(e)}
-			/>
+			<div>
+				{this.props.label} <input
+					type='text'
+					value={this.state.text}
+					placeholder={this.props.placeholder}
+					onChange={(e)=>this.updateText(e)}
+				/>
+			</div>
 		</div>;
 	}
 });
