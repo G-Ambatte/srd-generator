@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "create-react-class": "^15.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
@@ -20,12 +21,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:test" : "npm run lint && npm run start",
+    "start:test": "npm run lint && npm run start",
     "build": "react-scripts build",
     "build:clean": "npm i --clean && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint **/*.{js,jsx} --fix"  
+    "lint": "eslint **/*.{js,jsx} --fix"
   },
   "eslintConfig": {
     "extends": [
