@@ -1,38 +1,54 @@
-.App {
+@import './fonts.css';
+
+body {
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #2C3E50;
+}
+
+.srd {
+  width: 100vw;
+  min-height: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.srd-header {
+  width: 100%;
+  border-bottom: 2px solid white;
+  padding: 0;
+}
+
+.srd-header .srd-title .srd-logo {
+  height: 60px;
   pointer-events: none;
+  float: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.srd-header .srd-title {
+  height: 80px;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.srd-header .srd-title h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding-top: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.srd-body {
+  width: 60%;
+  background-color: wheat;
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  border: 2px solid black;
+  filter: drop-shadow(8px 10px 4px #000);
+  padding: 50px 90px;
 }
