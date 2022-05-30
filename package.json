@@ -2,11 +2,17 @@
   "name": "srd-generator",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.11.x"
+  },
   "dependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
-    "create-react-class": "^15.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
@@ -14,10 +20,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "lint": "eslint **/*.{js,jsx} --fix",
+    "start:test" : "npm run lint && npm run start",
     "build": "react-scripts build",
+    "build:clean": "npm i --clean && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint **/*.{js,jsx}"  
   },
   "eslintConfig": {
     "extends": [
@@ -26,8 +34,7 @@
     ]
   },
   "eslintIgnore": [
-    "build/*",
-    "node_modules"
+    "build/*"
   ],
   "browserslist": {
     "production": [
@@ -39,6 +46,15 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
     ]
   }
 }
