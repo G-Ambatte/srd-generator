@@ -1,14 +1,13 @@
-import logo from './logo.svg';
-import FilterElement from './pageElements/filterElement.jsx';
+import FilterElement from '../pageElements/filterElement.jsx';
 
-require('./App.css');
+require('./HomePage.css');
 const React = require('react');
 const createReactClass = require('create-react-class');
 
-const srdData = require('./data/srd.json');
+const srdData = require('../data/srd.json');
 
-const App = createReactClass({
-	displayName : 'App',
+const HomePage = createReactClass({
+	displayName : 'HomePage',
 
 	getInitialState : function() {
 		return {
@@ -41,35 +40,26 @@ const App = createReactClass({
 		const outputList = monsterList.length ? monsterList : monsterSuggestionList;
 
 		return outputList
-			.map((monster, idx)=>{ return <div key={`monster-${idx}`}>{monster.name}: CR{monster.Challenge}</div>; });
+			.map((monster, idx)=>{ return <div key={`monster-${idx}`}><a href={`/monster/${encodeURIComponent(monster.name)}`}>{monster.name}: CR{monster.Challenge}</a></div>; });
 	},
 
 	buttonClick : function(){
-		console.log('Clicked');
+		// console.log('Clicked');
 		navigator.clipboard.writeText(this.state.suggestion);
 	},
 
 	render : function() {
-		return <div className='srd'>
-			<div className='srd-header'>
-				<div className='srd-title'>
-					<img src={logo} className='srd-logo' alt='logo' />
-					<h1>5E SRD GENERATOR</h1>
-				</div>
+		return <>
+			<div className='srd-filter-box'>
+				<FilterElement label='NAME:' text={this.state.text} placeholder='start typing here...' updateText={this.updateText} />
+				<button onClick={this.buttonClick} >Copy to Clipboard</button>
+				<p>Current suggestion count: {this.state.count}</p>
 			</div>
-			<div className='srd-body'>
-
-				<div className='srd-filter-box'>
-					<FilterElement label='NAME:' text={this.state.text} placeholder='start typing here...' updateText={this.updateText} />
-					<button onClick={this.buttonClick} >Copy to Clipboard</button>
-					<p>Current suggestion count: {this.state.count}</p>
-				</div>
-				<div className='srd-data'>
-					{this.renderMonsterList()}
-				</div>
+			<div className='srd-data'>
+				{this.renderMonsterList()}
 			</div>
-		</div>;
+		</>;
 	}
 });
 
-export default App;
+export default HomePage;

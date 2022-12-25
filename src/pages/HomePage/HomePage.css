@@ -1,0 +1,27 @@
+@import '../fonts.css';
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.srd {
+  background-color: #2C3E50;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  margin-top: -22px;
+  padding-top: 22px;
+}
+
+.srd-body {
+  width: 60%;
+  background-color: wheat;
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  border: 2px solid black;
+  filter: drop-shadow(8px 10px 4px #000);
+  padding: 50px 90px;
+}

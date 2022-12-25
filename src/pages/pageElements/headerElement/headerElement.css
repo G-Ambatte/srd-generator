@@ -1,0 +1,27 @@
+.srd-header {
+    width: 100%;
+    border-bottom: 2px solid white;
+    padding: 0;
+  }
+  
+  .srd-header .srd-title .srd-logo {
+    height: 60px;
+    pointer-events: none;
+    float: left;
+  }
+  
+  .srd-header .srd-title {
+    height: 80px;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  .srd-header .srd-title h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding-top: 8px;
+  }
