@@ -13,21 +13,22 @@ const App = createReactClass({
 	getInitialState : function() {
 		return {
 			text       : '',
-			suggestion : ''
+			suggestion : '',
+			count      : srdData.length
 		};
 	},
 
 	updateText : function(newText) {
 		const update = {};
-		const firstMonster = srdData.filter((monster)=>{ return monster.name.toLowerCase().includes(newText.toLowerCase()); })[0];
+		const monsters = srdData.filter((monster)=>{ return monster.name.toLowerCase().includes(newText.toLowerCase()); });
 
-		if(firstMonster) {
-			update.suggestion = firstMonster.name;
+		update.text = newText;
+		update.count = newText === '' ? srdData.length : monsters.length;
+		if(monsters.length) {
+			update.suggestion = newText;
 		};
-		if(this.state.text != newText){
-			update.text = newText;
-		}
 
+		console.log(monsters.length);
 		if(update.text || update.suggestion){
 			this.setState(update);
 		}
@@ -35,12 +36,17 @@ const App = createReactClass({
 
 	renderMonsterList : function() {
 		const monsterList = srdData.filter((monster)=>{ return monster.name.toLowerCase().includes(this.state.text.toLowerCase()); });
-		const monsterSuggestion = srdData.filter((monster)=>{ return monster.name.toLowerCase().includes(this.state.suggestion.toLowerCase()); });
+		const monsterSuggestionList = srdData.filter((monster)=>{ return monster.name.toLowerCase().includes(this.state.suggestion.toLowerCase()); });
 
-		const outputList = monsterList.length ? monsterList : monsterSuggestion;
+		const outputList = monsterList.length ? monsterList : monsterSuggestionList;
 
 		return outputList
-			.map((monster, idx)=>{ return <div id={`monster-${idx}`}>{monster.name}: CR{monster.Challenge}</div>; });
+			.map((monster, idx)=>{ return <div key={`monster-${idx}`}>{monster.name}: CR{monster.Challenge}</div>; });
+	},
+
+	buttonClick : function(){
+		console.log('Clicked');
+		navigator.clipboard.writeText(this.state.suggestion);
 	},
 
 	render : function() {
@@ -52,9 +58,11 @@ const App = createReactClass({
 				</div>
 			</div>
 			<div className='srd-body'>
+
 				<div className='srd-filter-box'>
 					<FilterElement label='NAME:' text={this.state.text} placeholder='start typing here...' updateText={this.updateText} />
-					{this.state.text ? `Do you mean ${this.state.suggestion}?` : 'Suggestions will appear here while typing'}
+					<button onClick={this.buttonClick} >Copy to Clipboard</button>
+					<p>Current suggestion count: {this.state.count}</p>
 				</div>
 				<div className='srd-data'>
 					{this.renderMonsterList()}
