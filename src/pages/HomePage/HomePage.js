@@ -40,7 +40,7 @@ const HomePage = createReactClass({
 		const outputList = monsterList.length ? monsterList : monsterSuggestionList;
 
 		return outputList
-			.map((monster, idx)=>{ return <div key={`monster-${idx}`}><a href={`/monster/${encodeURIComponent(monster.name)}`}>{monster.name}: CR{monster.Challenge}</a></div>; });
+			.map((monster, idx)=>{ return <div key={`monster-${idx}`}><a href={`/#/monster/${encodeURIComponent(monster.name)}`}>{monster.name}: CR{monster.Challenge}</a></div>; });
 	},
 
 	buttonClick : function(){
