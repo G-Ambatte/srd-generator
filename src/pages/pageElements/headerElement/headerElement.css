@@ -3,16 +3,21 @@
     border-bottom: 2px solid white;
     padding: 0;
   }
+
+  .srd-header a {
+    display: block;
+  }
   
   .srd-header .srd-title .srd-logo {
-    height: 60px;
-    pointer-events: none;
-    float: left;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 58px);
+    height: 100px;
   }
   
   .srd-header .srd-title {
     height: 80px;
-    width: 35%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -20,6 +25,7 @@
     color: white;
   }
   .srd-header .srd-title h1 {
+    position: relative;
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
     text-transform: uppercase;

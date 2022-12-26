@@ -1,1 +1,93 @@
-/* Placeholder for future CSS */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .monster.frame, .monster.frame * {
+    visibility: visible;
+  }
+  .monster.frame {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.monster.frame {
+  border-style: solid;
+  border-width: 7px 6px;
+  background-color: #F2E5B5;
+  background-image: url('./assets/parchmentBackgroundGrayscale.jpg');
+  border-image: url('./assets/monsterBorderFancy.png') 14 round;
+  border-image-outset: 0px 2px;
+  background-blend-mode: overlay;
+  box-shadow: 1px 4px 6px #888;
+  padding: 1% 2%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.monster h2 {
+  font-size: 0.85cm;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-variant: small-caps;
+}
+
+.monster h2 + p {
+  margin-top: 0px;
+}
+
+.monster h3 {
+  font-weight: 800;
+  font-variant: small-caps;
+  border-bottom: 2px solid var(--HB_Color_HeaderText);
+  padding-bottom: 0.05cm;
+  font-size: .575cm;
+  border-bottom: 2px solid goldenrod;
+  line-height: .995em;
+}
+
+.monster hr {
+  height: 6px;
+  margin: 0.12cm 0;
+  background-image: url('./assets/redTriangle.png');
+  background-size: 100% 100%;
+  border: none;
+}
+
+.monster dt,
+.monster dd {
+  display: inline-block;
+  margin-left: 0px;
+ }
+
+ .monster dt {
+  width: 17.5%;
+ }
+
+.monster table {
+  width: 55%;
+}
+
+.monster table thead {
+  font-weight: bold;
+}
+
+.monster table tr {
+  border: 1px solid goldenrod;
+}
+
+.monster img {
+  width: 40%;
+  position: relative;
+  float: right;
+  mix-blend-mode: darken;
+  margin-left: 2%;
+}
+
+.monster p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

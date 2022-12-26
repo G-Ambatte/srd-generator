@@ -8,6 +8,7 @@ import BodyElement from './pages/pageElements/bodyElement/bodyElement';
 // Pages
 import HomePage from './pages/HomePage/HomePage';
 import MonsterPage from './pages/MonsterPage/MonsterPage';
+import CreditsPage from './pages/CreditsPage/CreditsPage';
 
 const WithRoute = (props)=>{
 	const params = useParams();
@@ -35,6 +36,7 @@ const Paths = ()=>{
 	return (
 		<Routes>
 			<Route path='/monster/:monster' element={<WithRoute el={MonsterPage} />} />
+			<Route path='/credits' element={<WithRoute el={CreditsPage} />} />
 			<Route path='/*' element={<WithRoute el={HomePage} />} />
 		</Routes>
 	);

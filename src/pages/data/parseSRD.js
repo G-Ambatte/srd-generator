@@ -25,11 +25,24 @@ const main = function(){
 				if(item.slice(0, 3)=='***'){
 					item = item.slice(3);
 					itemArray = item.split('***');
+					let newArray = [];
+					if(itemArray[1].trim().slice(0, 1)=='*'){
+						newArray = itemArray[1].trim().slice(1).split('*');
+						newArray = newArray.map((item)=>{
+							return item.trim();
+						});
+						const outputArray = [];
+						for (let i = 0; i < newArray.length; i += 2) {  // take every second element
+							outputArray.push({ italics: newArray[i], content: newArray[i + 1] });
+						};
+						newArray = outputArray;
+					}
+					if(newArray.length == 0) { newArray = { content: [itemArray[1].trim()] };};
 					itemObject = {
-						title   : itemArray[0],
-						content : itemArray[1]
+						title   : itemArray[0].trim(),
+						content : newArray
 					};
-					// console.log(itemObject);
+					console.log(itemObject);
 					return itemObject;
 				};
 				return { title: '', content: item };

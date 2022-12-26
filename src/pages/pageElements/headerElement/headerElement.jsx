@@ -9,10 +9,10 @@ const HeaderElement = createReactClass({
 
 	render : function() {
 		return <div className='srd-header'>
-			<div className='srd-title'>
+			<a href='/' className='srd-title'>
 				<img src={logo} className='srd-logo' alt='logo' />
 				<h1>5E SRD GENERATOR</h1>
-			</div>
+			</a>
 		</div>;
 	}
 });

@@ -14,10 +14,21 @@ const MonsterPage = createReactClass({
 		return monster;
 	},
 
+	renderAttacks : function(attackContent) {
+		if(Array.isArray(attackContent)) {
+			console.log('type - array');
+			return attackContent.map((item, idx)=>{return <span key={idx}>{item.italics && <em>{item.italics} </em>}{item.content} </span>;});
+		}
+		if(typeof attackContent=='object') {
+			console.log('type - object');
+			return <><em>{attackContent.italics}</em>{attackContent.content}</>;
+		}
+	},
+
 	renderMonster : function(monster, renderer=0) {
 		if(!monster) return <><h2>No monster data</h2></>;
 
-		console.log(monster);
+		// console.log(monster);
 		return <>
 			<div className='monster frame'>
 				<img src={monster.img_url} />
@@ -56,17 +67,20 @@ const MonsterPage = createReactClass({
 				</dl>
 				<hr />
 				{monster.Traits.map((trait, idx)=>{
-					return <p key={idx}><em><strong>{trait.title}</strong></em>{trait.content}</p>;
+					return <p key={idx}><em><strong>{trait.title}</strong></em> {trait.content.content}</p>;
 				})}
 				<h3 id='actions'>Actions</h3>
 				{monster.Actions.map((action, idx)=>{
-					return <p key={idx}><em><strong>{action.title}</strong></em>{action.content}</p>;
+					console.log(action);
+					return <p key={idx}><em><strong>{action.title}</strong></em> {this.renderAttacks(action.content)}</p>;
 				})}
-				<h3 id='actions'>Legendary Actions</h3>
-				{monster['Legendary Actions'].map((legendaryaction, idx)=>{
-					if(!legendaryaction) return;
-					return <p key={idx}><em><strong>{legendaryaction.title}</strong></em>{legendaryaction.content}</p>;
-				})}
+				{monster['Legendary Actions'] && <>
+					<h3 id='actions'>Legendary Actions</h3>
+					{monster['Legendary Actions'].map((legendaryaction, idx)=>{
+						if(!legendaryaction) return;
+						return <p key={idx}><em><strong>{legendaryaction.title}</strong></em> {legendaryaction.content.content}</p>;
+					})}
+				</>}
 			</div>
 		</>;
 	},
