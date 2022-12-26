@@ -27,7 +27,7 @@ const HomePage = createReactClass({
 			update.suggestion = newText;
 		};
 
-		console.log(monsters.length);
+		// console.log(monsters.length);
 		if(update.text || update.suggestion){
 			this.setState(update);
 		}
