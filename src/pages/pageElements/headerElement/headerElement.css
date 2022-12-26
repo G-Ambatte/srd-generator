@@ -4,30 +4,39 @@
     padding: 0;
   }
 
-  .srd-header a {
-    display: block;
-  }
+.srd-header a {
+  display: block;
+}
   
-  .srd-header .srd-title .srd-logo {
-    position: absolute;
-    top: 0px;
-    left: calc(50% - 58px);
-    height: 100px;
-  }
-  
-  .srd-header .srd-title {
-    height: 80px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  .srd-header .srd-title h1 {
-    position: relative;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    padding-top: 8px;
-  }
+.srd-header .srd-title .srd-logo {
+  position: absolute;
+  top: 0px;
+  left: calc(50% - 58px);
+  height: 100px;
+}
+
+.srd-header .srd-title {
+  height: 80px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.srd-header .srd-title h1 {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding-top: 8px;
+}
+.srd-header .srd-credits {
+  position: absolute;
+  right: 1%;
+  width: 76px;
+  background-color: white;
+  top: 12px;
+  height: 76px;
+  border-radius: 50%;
+}

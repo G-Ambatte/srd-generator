@@ -13,6 +13,9 @@ const HeaderElement = createReactClass({
 				<img src={logo} className='srd-logo' alt='logo' />
 				<h1>5E SRD GENERATOR</h1>
 			</a>
+			<a href='/#/credits' className='srd-credits'>
+				<h2>i</h2>
+			</a>
 		</div>;
 	}
 });
