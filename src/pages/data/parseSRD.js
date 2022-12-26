@@ -29,7 +29,7 @@ const main = function(){
 						title   : itemArray[0],
 						content : itemArray[1]
 					};
-					console.log(itemObject);
+					// console.log(itemObject);
 					return itemObject;
 				};
 				return { title: '', content: item };
