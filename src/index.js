@@ -1,19 +1,18 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 
 import './index.css';
 import Paths from './Paths.js';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
 	<HashRouter>
 		<React.StrictMode>
 			<Paths />
 		</React.StrictMode>
-	</HashRouter>,
-	root
+	</HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
