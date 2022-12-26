@@ -18,8 +18,22 @@ const main = function(){
 	const input = require('./srd_monsters.json');
 
 	const output = input.flatMap((monster)=>{
-		['Actions', 'Traits', 'Legendary Actions'].map((item)=>{
-			monster[item] = monster[item] && parseString(monster[item]).split('</p>');
+		['Actions', 'Traits', 'Legendary Actions'].map((trait)=>{
+			monster[trait] = monster[trait] && parseString(monster[trait]).split('</p>');
+
+			monster[trait] = monster[trait] && monster[trait]?.map((item)=>{
+				if(item.slice(0, 3)=='***'){
+					item = item.slice(3);
+					itemArray = item.split('***');
+					itemObject = {
+						title   : itemArray[0],
+						content : itemArray[1]
+					};
+					console.log(itemObject);
+					return itemObject;
+				};
+				return { title: '', content: item };
+			});
 		});
 		return monster;
 	});
