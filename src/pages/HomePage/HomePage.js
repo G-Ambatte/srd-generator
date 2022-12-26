@@ -18,11 +18,18 @@ const HomePage = createReactClass({
 	},
 
 	updateText : function(newText) {
+		if(newText === '') {
+			this.setState({
+				text       : '',
+				suggestion : '',
+				count      : srdData.length
+			});
+		};
 		const update = {};
 		const monsters = srdData.filter((monster)=>{ return monster.name.toLowerCase().includes(newText.toLowerCase()); });
 
 		update.text = newText;
-		update.count = newText === '' ? srdData.length : monsters.length;
+		update.count = monsters.length;
 		if(monsters.length) {
 			update.suggestion = newText;
 		};
