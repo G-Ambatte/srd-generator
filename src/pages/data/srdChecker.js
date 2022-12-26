@@ -35,6 +35,8 @@ const main = function(){
 		'CHA_mod',
 		'Saving Throws',
 		'Skills',
+		'Damage Immunities',
+		'Condition Immunities',
 		'Senses',
 		'Languages',
 		'Challenge',
