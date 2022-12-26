@@ -63,7 +63,7 @@ const MonsterPage = createReactClass({
 					})}
 				</dl>
 				<hr />
-				{monster.Traits.map((trait, idx)=>{
+				{monster.Traits && monster.Traits.map((trait, idx)=>{
 					return <p key={idx}><em><strong>{trait.title}</strong></em> {trait.content.content}</p>;
 				})}
 				<h3 id='actions'>Actions</h3>
