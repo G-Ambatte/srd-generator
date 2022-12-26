@@ -16,11 +16,9 @@ const MonsterPage = createReactClass({
 
 	renderAttacks : function(attackContent) {
 		if(Array.isArray(attackContent)) {
-			console.log('type - array');
 			return attackContent.map((item, idx)=>{return <span key={idx}>{item.italics && <em>{item.italics} </em>}{item.content} </span>;});
 		}
 		if(typeof attackContent=='object') {
-			console.log('type - object');
 			return <><em>{attackContent.italics}</em>{attackContent.content}</>;
 		}
 	},
@@ -28,7 +26,6 @@ const MonsterPage = createReactClass({
 	renderMonster : function(monster, renderer=0) {
 		if(!monster) return <><h2>No monster data</h2></>;
 
-		// console.log(monster);
 		return <>
 			<div className='monster frame'>
 				<img src={monster.img_url} />
@@ -71,7 +68,6 @@ const MonsterPage = createReactClass({
 				})}
 				<h3 id='actions'>Actions</h3>
 				{monster.Actions.map((action, idx)=>{
-					console.log(action);
 					return <p key={idx}><em><strong>{action.title}</strong></em> {this.renderAttacks(action.content)}</p>;
 				})}
 				{monster['Legendary Actions'] && <>
