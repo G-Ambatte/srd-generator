@@ -34,7 +34,7 @@ const WithRoute = (props)=>{
 const Paths = ()=>{
 	return (
 		<Routes>
-			<Route path='/monster/:id' element={<WithRoute el={MonsterPage} />} />
+			<Route path='/monster/:monster' element={<WithRoute el={MonsterPage} />} />
 			<Route path='/*' element={<WithRoute el={HomePage} />} />
 		</Routes>
 	);
