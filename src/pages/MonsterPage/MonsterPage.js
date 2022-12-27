@@ -63,13 +63,16 @@ const MonsterPage = createReactClass({
 					})}
 				</dl>
 				<hr />
-				{monster.Traits && monster.Traits.map((trait, idx)=>{
+				{monster['Traits'] && monster.Traits.map((trait, idx)=>{
 					return <p key={idx}><em><strong>{trait.title}</strong></em> {trait.content.content}</p>;
 				})}
-				<h3 id='actions'>Actions</h3>
-				{monster.Actions.map((action, idx)=>{
-					return <p key={idx}><em><strong>{action.title}</strong></em> {this.renderAttacks(action.content)}</p>;
-				})}
+				{monster['Actions'] && <>
+					<h3 id='actions'>Actions</h3>
+					{monster.Actions.map((action, idx)=>{
+						return <p key={idx}><em><strong>{action.title}</strong></em> {this.renderAttacks(action.content)}</p>;
+					})}
+				</>
+				}
 				{monster['Legendary Actions'] && <>
 					<h3 id='actions'>Legendary Actions</h3>
 					{monster['Legendary Actions'].map((legendaryaction, idx)=>{
