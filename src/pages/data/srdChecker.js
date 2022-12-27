@@ -55,7 +55,8 @@ const main = function(){
 		return output;
 	});
 
-	// The following properties are not present on all items
+	// 
+	console.log('The following properties are not present on all items:');
 	console.log(Array.from(new Set(output)));
 };
 
